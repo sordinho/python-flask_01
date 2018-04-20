@@ -21,7 +21,7 @@ def index():
     username = session.get("user", "")
     if username != "":
         alarms = userDB.get_alarms(session["id"])
-        #print(alarms)
+        # print(alarms)
     else:
         alarms = None
     return render_template("index.html", name=username, alarms=alarms)
@@ -37,13 +37,13 @@ def welcome():
     print(request)
     username = request.form['username']  # this was intended before the cookies implementation
     userdata = userDB.check_user(username)
-    if userdata == None:
+    if userdata is None:
         return render_template("loginerror.html")  # pagina di errore in caso di username non nel DB
     else:
         session["user"] = userdata[1]  # save the cookies
         session["fullname"] = userdata[3]  # save the cookies
         session["id"] = userdata[0]  # save the cookies
-        #print(session["id"])
+        # print(session["id"])
         # return render_template("welcome.html", name=username)
         return redirect(url_for("index"))
 
