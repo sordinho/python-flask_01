@@ -1,4 +1,6 @@
-h1 {color: red;}
+h1 {color: red}
+
+h1:hover {color: aqua}
 
 #footer {
     color: green;
