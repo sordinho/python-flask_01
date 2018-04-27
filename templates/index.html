@@ -18,14 +18,17 @@
             crossorigin="anonymous"></script>
 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="style.css") }}"/>
+
+    <script type="application/javascript" src="{{ url_for('static',filename='script.js') }}"></script>
+
 </head>
 <body>
 <div class="container-fluid">
     <h1>Ambient intelligence 2018</h1>
-    <p>Welcome to my project {{ name }}</p>
+    <p id="subtitle">Welcome to my project {{ name }}</p>
 
     {% if name == "" %}
-        <img src="{{ url_for('static',filename="rooster.jpg") }}">
+        <img src="{{ url_for('static',filename="rooster.jpg") }}" onclick="roosterClicked()">
     {% else %}
         <p>Your alarms:</p>
         <ul>
